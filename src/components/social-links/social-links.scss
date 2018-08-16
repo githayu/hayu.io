@@ -1,0 +1,95 @@
+@import "../../styles/easings.scss";
+@import "../../styles/common.scss";
+
+@keyframes showSocialLinks {
+  0% {
+    opacity: 0;
+    transform: translate3d(10px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.c-socialLinks {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  transform: translate3d(0, -50%, 0);
+
+  > a {
+    width: 20px;
+    height: 20px;
+    text-decoration: none !important;
+    font-size: 0;
+
+    + a {
+      margin-top: 16px;
+    }
+
+    i {
+      line-height: 2rem;
+      font-size: 2.4rem;
+      width: 100%;
+      height: 100%;
+      color: #525252;
+      transition: color ease-out .2s;
+    }
+
+    &:hover {
+      i {
+        color: #f2f2f2;
+      }
+    }
+
+    &.icon-twitter:hover i { color: #55acee }
+    &.icon-pixiv:hover i { color: #0099e1 }
+    &.icon-userstyles:hover i { color: #ffec8b }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .c-socialLinks {
+    position: relative;
+    top: 0;
+    right: 0;
+    flex-direction: row;
+    transform: none;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    background-color: #323232;
+    opacity: 1;
+
+    > a {
+      i {
+        color: #888;
+      }
+
+      + a {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .page--aboutMe {
+    .c-socialLinks {
+      > a {
+        opacity: 0;
+
+        @for $i from 1 through 7 {
+          $seconds: 1.6s;
+
+          &:nth-child(#{$i}) {
+            animation: 1s #{$seconds + $i / 20} $ease-out-cubic forwards showSocialLinks
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@import "../../styles/easings.scss";
+
+.p-intro {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 0 transparent solid;
+  height: 100vh;
+  background-color: #121212;
+  background-clip: content-box;
+  position: relative;
+  transition: border-width 3s $ease-out-cubic;
+
+  &.p-intro--particles {
+    border-width: 40px;
+
+    .particles-js-canvas-el,
+    .p-intro-scrollDown {
+      opacity: 1;
+    }
+  }
+}
+
+.particles-js-canvas-el {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.p-intro-scrollDown {
+  color: #f2f2f2 !important;
+  width: 20px;
+  height: 32px;
+  position: absolute;
+  bottom: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px currentColor solid;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 10;
+  transition: color .2s ease-out,
+              opacity 1s ease-out;
+  opacity: 0;
+
+  &::before {
+    content: '';
+    width: 2px;
+    height: 6px;
+    background-color: currentColor;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
+    transform-origin: bottom;
+    animation: 5s 1s linear infinite scrollDown;
+  }
+
+  &:hover {
+    color: #2196F3 !important;
+  }
+
+  #app.is-particles & {
+    opacity: 1;
+  }
+}
+
+@keyframes scrollDown {
+  0%, 10% {
+    transform-origin: top;
+    transform: translate3d(-50%, 0, 0) scale3d(1, 0, 1);
+  }
+  11%, 90% {
+    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
+  }
+  91%, 100% {
+    transform-origin: bottom;
+    transform: translate3d(-50%, 0, 0) scale3d(1, 0, 1);
+  }
+}
+
+// スマホスマートフォン
+@media screen and (max-width: 480px) {
+  .particles-js-canvas-el {
+    display: none;
+  }
+}
+
+// タブレット
+@media screen and (max-width: 768px) {
+  .intro {
+    border-width: 0;
+  }
+
+  .p-intro-scrollDown {
+    display: none;
+  }
+}

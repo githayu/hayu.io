@@ -1,0 +1,479 @@
+@import "../../styles/easings.scss";
+@import "../../styles/common.scss";
+
+$cardWidth: 300px;
+$cardHeight: 400px;
+
+@mixin cardCoverFrameTilt-after {
+  transform: scale3d(1, 1, 1);
+}
+
+@mixin showCardMetaContent-before {
+  transform: translate3d(0, 30px, 0);
+  opacity: 0;
+}
+
+@mixin showCardMetaContent-after {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+@keyframes showCardMetaContent {
+  0% {
+    @include showCardMetaContent-before;
+  }
+  100% {
+    @include showCardMetaContent-after;
+  }
+}
+
+@keyframes showCard {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loadCard {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes openCard {
+  0% {
+    height: 4px;
+  }
+  100% {
+    height: $cardHeight;
+  }
+}
+
+@mixin showCardCover-after {
+  transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+  opacity: 1;
+}
+
+@keyframes showCardCover {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    @include showCardCover-after;
+  }
+}
+
+@mixin showCardAvatar-before {
+  transform: translate3d(-50%, $cardHeight - 120px, 0);
+  opacity: 0;
+}
+
+@mixin showCardAvatar-after {
+  transform: translate3d(-50%, 115px, 0);
+  opacity: 1;
+}
+
+@keyframes showCardAvatar {
+  0% {
+    @include showCardAvatar-before;
+  }
+  100% {
+    @include showCardAvatar-after;
+  }
+}
+
+@keyframes cardCoverFrameTilt {
+  0% {
+    transform: scale3d(1, 0, 0);
+  }
+  100% {
+    @include cardCoverFrameTilt-after;
+  }
+}
+
+
+@mixin showAboutMe {
+  .c-profileCard {
+    &-main {
+      transform: translate3d(calc(-50% - 160px), -50%, 0);
+    }
+
+    &-detail {
+      transform: translate3d(calc(50% - 140px), -50%, 0);
+      opacity: 1;
+    }
+
+    &-detailSections {
+      > section {
+        > h2 {
+          animation: .5s .5s forwards enterTextCover;
+
+          &::before {
+            animation: 1s 1s forwards leaveTextCover;
+          }
+        }
+      }
+    }
+
+    &-comment {
+      animation: .5s .8s forwards enterTextCover;
+
+      &::before {
+        animation: 1s 1.3s forwards leaveTextCover;
+      }
+    }
+
+    &-likes {
+      animation: .5s 1s forwards enterTextCover;
+
+      &::before {
+        animation: 1s 1.5s forwards leaveTextCover;
+      }
+    }
+  }
+}
+
+.c-profileCard {
+  margin: 0 auto;
+  position: relative;
+  flex: 1;
+  width: 768px;
+
+  > div {
+    width: $cardWidth;
+    border-radius: 4px;
+    box-shadow: 0 1px 10px rgba(0,0,0,.3);
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transition: all .5s ease-in-out;
+  }
+
+  &-main {
+    height: $cardHeight;
+    background-color: #fff;
+    z-index: 10;
+  }
+
+  &-cover {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,.5) 50%, transparent),
+                url('../../assets/img/card-cover.jpg') no-repeat -140px -80px / cover;
+    overflow: hidden;
+    @include showCardCover-after;
+  }
+
+  &-avatar {
+    position: absolute;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    z-index: 5;
+    border: 5px #fff solid;
+    box-sizing: border-box;
+    background: url('//0.gravatar.com/avatar/7fe62f3d8f57d19291c548715744135e?size=240') no-repeat center/cover;
+    @include showCardAvatar-after;
+  }
+
+  &-content {
+    position: absolute;
+    top: 185px;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    padding: 60px 0 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      border-color: transparent transparent transparent #fff;
+      border-style: solid;
+      background: transparent;
+      border-width: 20px 0 0 $cardWidth;
+      transform-origin: bottom;
+      @include cardCoverFrameTilt-after;
+    }
+  }
+
+  &-name {
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    @include showCardMetaContent-after;
+  }
+
+  &-meta {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    color: #b2b2b2;
+    display: inline-block;
+    @include showCardMetaContent-after;
+
+    > li {
+      text-align: center;
+
+      &:before {
+        margin-right: 4px;
+        color: #e0e0e0;
+      }
+
+      + li {
+        margin-top: 2px;
+      }
+    }
+  }
+
+  &-aboutMeButton {
+    margin: 0 !important;
+    @include showCardMetaContent-after;
+  }
+
+  &-detail {
+    background: #222 linear-gradient(-5deg, transparent 40px, #181818 40px) no-repeat;
+    color: #484848;
+    line-height: 2.2rem;
+  }
+
+  &-detailSections {
+    > section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      + section {
+        margin-top: 30px;
+      }
+
+      > h2 {
+        margin: 0;
+        color: #03A9F4;
+        font-family: 'futura-pt', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &-comment {
+    margin: 10px 0 0;
+  }
+
+  &-likes {
+    padding: 0;
+    list-style: none;
+    margin: 10px 0 0;
+
+    > li {
+      &::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        display: inline-block;
+        background-color: #323232;
+        vertical-align: middle;
+        margin: 0 12px 0 2px;
+      }
+
+      + li {
+        margin-top: 6px !important;
+      }
+    }
+  }
+}
+
+// スマホ
+@media screen and (max-width: 480px) {
+  .c-profileCard {
+    width: 100%;
+
+    > div {
+      transform: none !important;
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      box-shadow: none;
+      border-radius: 0;
+      transition: none;
+    }
+
+    &-main {
+      height: 350px;
+    }
+
+    &-aboutMeButton {
+      display: none !important;
+    }
+
+    &-detail {
+      padding: 0;
+    }
+
+    &-detailSections {
+      padding: 30px;
+    }
+  }
+}
+
+// スマホ と タブレット
+@media screen and (max-width: 768px) {
+  .c-profileCard-content {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// タブレット と PC
+@media screen and (min-width: 480px) {
+  .c-profileCard {
+    min-width: 420px;
+    min-height: 600px;
+    width: 100%;
+
+    &.c-profileCard--anime {
+      .c-profileCard {
+        &-main {
+          height: 4px;
+          animation: 1s ease forwards showCard,
+                    1s 2s ease forwards openCard;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+            transform: translate3d(-100%, 0, 0);
+            animation: 1s 1s linear forwards loadCard;
+          }
+        }
+
+        &-content {
+          &::before {
+            transform: scale3d(1, 0, 0);
+            animation: 1s 2.8s ease-in-out forwards cardCoverFrameTilt;
+          }
+        }
+
+        &-cover {
+          opacity: 0;
+          animation: 1s 2.8s $ease-out-quad forwards showCardCover;
+
+          &::before {
+            opacity: 0;
+            animation: .5s 3.3s $ease-out-cubic forwards showCardCoverShadow;
+          }
+        }
+
+        &-avatar {
+          @include showCardAvatar-before;
+          animation: 1s 2s $ease-in-cubic forwards showCardAvatar;
+        }
+
+        &-name {
+          @include showCardMetaContent-before;
+          animation: .8s 3.3s $ease-out-cubic forwards showCardMetaContent;
+        }
+
+        &-meta {
+          @include showCardMetaContent-before;
+          animation: .8s 3.6s $ease-out-cubic forwards showCardMetaContent;
+        }
+
+        &-aboutMeButton {
+          @include showCardMetaContent-before;
+          margin: 0;
+          animation: .8s 3.9s $ease-out-cubic forwards showCardMetaContent;
+        }
+      }
+    }
+
+    &.is-aboutMe {
+      @include showAboutMe;
+    }
+
+    &-detail {
+      height: $cardHeight;
+      padding: 30px 60px 30px 30px;
+      top: 0;
+      position: absolute;
+      z-index: 5;
+      opacity: 0;
+    }
+
+    &-detailSections {
+      > section {
+        > h2 {
+          @include enterTextCover;
+
+          &::before {
+            background-color: currentColor;
+            @include leaveTextCover;
+          }
+        }
+      }
+    }
+
+    &-comment,
+    &-likes {
+      @include enterTextCover;
+
+      &::before {
+        background-color: currentColor;
+        @include leaveTextCover;
+      }
+    }
+  }
+}
+
+// タブレット
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .c-profileCard {
+    &.is-aboutMe {
+      min-height: $cardHeight * 2 + 100px;
+
+      .c-profileCard {
+        &-main {
+          transform: translate3d(-50%, calc(-50% - #{$cardHeight / 2} - 10px), 0);
+        }
+
+        &-detail {
+          transform: translate3d(-50%, calc(-50% + #{$cardHeight / 2} + 10px), 0);
+        }
+      }
+    }
+  }
+}
+
+// PC
+@media screen and (min-width: 768px) {
+
+}
