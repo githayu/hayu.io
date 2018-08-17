@@ -24,8 +24,6 @@
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-service": "^3.0.0",
     "@vue/eslint-config-prettier": "^3.0.0",
-    "babel-eslint": "8",
-    "eslint": "4.x",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "stylus": "^0.54.5",
