@@ -1,3 +1,4 @@
 allowBuilds:
   '@parcel/watcher': false
   '@tsparticles/engine': false
+minimumReleaseAge: 0
