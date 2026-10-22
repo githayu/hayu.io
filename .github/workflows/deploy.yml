@@ -1,0 +1,35 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          cache: pnpm
+          node-version: 24
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0.11.0
+        with:
+          channelId: live
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HAYU_IO }}
+          projectId: hayu-io
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
