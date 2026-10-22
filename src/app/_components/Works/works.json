@@ -1,0 +1,260 @@
+{
+  "categories": [
+    {
+      "id": "web",
+      "label": "Webアプリ"
+    },
+    {
+      "id": "library",
+      "label": "ライブラリ"
+    },
+    {
+      "id": "extension",
+      "label": "ブラウザ拡張・スタイル"
+    },
+    {
+      "id": "motion",
+      "label": "モーショングラフィックス"
+    },
+    {
+      "id": "illustration",
+      "label": "イラスト"
+    }
+  ],
+  "works": [
+    {
+      "category": "web",
+      "createdDate": "2013-10-31",
+      "description": "特定言語のランダム文字列がほしかったのでつくった。",
+      "href": "https://apps.hayu.io/random",
+      "id": "random",
+      "images": [
+        "/works/random-v2.jpg",
+        "/works/random.jpg"
+      ],
+      "languages": [
+        "JavaScript",
+        "jQuery"
+      ],
+      "name": "ランダム文字列ジェネレーター",
+      "status": "active"
+    },
+    {
+      "category": "web",
+      "createdDate": "2012-12-10",
+      "description": "画像ファイルや画像URLからとびだせどうぶつの森のマイデザインに変換するWebサービス。",
+      "href": "https://acnl.hayu.io",
+      "id": "acnl",
+      "images": [
+        "/works/acnl.jpg"
+      ],
+      "languages": [
+        "PHP",
+        "GD",
+        "JavaScript",
+        "jQuery"
+      ],
+      "name": "マイデザイン作成支援ツール",
+      "status": "active"
+    },
+    {
+      "category": "web",
+      "createdDate": "2014-08-04",
+      "description": "ニコニコ大百科は画像の挿入が難しいので、画像をピクセル単位のHTMLTableにしてしまえば良いのでは⁉と思ってつくった。",
+      "href": "https://apps.hayu.io/image-table-converter/index.html",
+      "id": "image-table-converter",
+      "images": [
+        "/works/image-table-converter.jpg"
+      ],
+      "languages": [
+        "JavaScript",
+        "jQuery"
+      ],
+      "name": "イメージテーブルコンバータ",
+      "status": "discontinued"
+    },
+    {
+      "category": "library",
+      "createdDate": "2020-01-11",
+      "description": "JAMA・JAPIA標準帳票ガイドラインのQRコードを整形するnpmパッケージです。",
+      "href": "https://www.npmjs.com/package/jama-japia-qr-formatter",
+      "id": "jama-japia-qr-formatter",
+      "name": "JAMA・JAPIA QRコードフォーマッター",
+      "status": "active"
+    },
+    {
+      "category": "extension",
+      "createdDate": "2017-03-30",
+      "description": "ニコニコ動画の動画視聴ページにマテリアルデザインを適用するCSS。",
+      "href": "https://userstyles.org/styles/140751/material-watch",
+      "id": "nicovideo-material-watch",
+      "images": [
+        "/works/nicovideo-material-watch.jpg"
+      ],
+      "languages": [
+        "SCSS"
+      ],
+      "name": "Material Watch",
+      "status": "discontinued"
+    },
+    {
+      "category": "web",
+      "createdDate": "2012-04-01",
+      "description": "高校1年の頃に制作したニコニコ動画の外部Webサービス。当時では初のHTML5でニコニコ動画形式の動画プレイヤーの制作をする。コメント解析などのヘビーユーザー向けサービス。",
+      "href": "https://nicofinder.hayu.io",
+      "id": "nicofinder",
+      "images": [
+        "/works/nicofinder-watch.jpg",
+        "/works/nicofinder-comment.jpg",
+        "/works/nicofinder.jpg"
+      ],
+      "languages": [
+        "PHP",
+        "Node.js",
+        "JavaScript",
+        "jQuery",
+        "React"
+      ],
+      "name": "Nicofinder",
+      "status": "closed"
+    },
+    {
+      "category": "extension",
+      "createdDate": "2015-01-02",
+      "description": "Nicofinder web ではCORS的な関係で対応できないコメント投稿や動画品質の変更などを対応するための Chrome拡張機能。",
+      "href": "https://github.com/githayu/nicofinder-extension",
+      "id": "nicofinder-extension",
+      "images": [
+        "/works/nicofinder-extension-popup.jpg",
+        "/works/nicofinder-extension-comment.jpg",
+        "/works/nicofinder-extension-store.jpg",
+        "/works/nicofinder-extension.jpg",
+        "/works/nicofinder-extension-logo.jpg"
+      ],
+      "languages": [
+        "JavaScript"
+      ],
+      "name": "Nicofinder Extension",
+      "status": "closed"
+    },
+    {
+      "category": "extension",
+      "createdDate": "2013-06-25",
+      "description": "中学生の頃にCAの投稿をしたり、投稿ツールの改造をしていたので自分でも作りたかった。",
+      "href": "https://nanoway.fc2.page/news/nicofinder/chrome-extension",
+      "id": "nicovideo-comment-extension",
+      "images": [
+        "/works/nicovideo-comment-extension.jpg"
+      ],
+      "languages": [
+        "JavaScript"
+      ],
+      "name": "ニコニコ動画 コメント拡張",
+      "status": "closed"
+    },
+    {
+      "category": "web",
+      "createdDate": "2016-04-10",
+      "description": "ニコニコ動画のデスクトップ向け音楽プレイヤー。",
+      "href": "https://github.com/githayu/nicotunes",
+      "id": "nicotunes",
+      "images": [
+        "/works/nicotunes-screenshot.jpg",
+        "/works/nicotunes.jpg"
+      ],
+      "languages": [
+        "Electron",
+        "JavaScript",
+        "Node.js",
+        "React"
+      ],
+      "name": "NicoTunes",
+      "status": "closed"
+    },
+    {
+      "category": "extension",
+      "createdDate": "2013-09-25",
+      "description": "ニコニコ動画:Zero の終了に伴い原宿バージョンが廃止される為つくった。",
+      "href": "https://github.com/githayu/ginza-fix",
+      "id": "ginza-fix",
+      "images": [
+        "/works/ginza-fix.jpg"
+      ],
+      "languages": [
+        "CSS"
+      ],
+      "name": "GINZA fix",
+      "status": "discontinued"
+    },
+    {
+      "category": "motion",
+      "createdDate": "2017-01-05",
+      "description": "CSSアニメーションで動くプロフィールカードです。",
+      "href": "https://hayu.io",
+      "id": "hayu-io",
+      "images": [
+        "/works/hayu-io.gif"
+      ],
+      "languages": [
+        "JavaScript",
+        "Vue"
+      ],
+      "name": "HAYU/IO",
+      "status": "active"
+    },
+    {
+      "category": "motion",
+      "createdDate": "2015-02-19",
+      "description": "モーショングラフィックスの習作など。",
+      "id": "nanoway-motion-logo",
+      "images": [
+        "/works/nanoway-motion-logo.gif"
+      ],
+      "languages": [
+        "JavaScript",
+        "jQuery"
+      ],
+      "name": "NANOWAY モーションロゴ",
+      "status": "active"
+    },
+    {
+      "category": "motion",
+      "demo": "hatsune-miku",
+      "description": "初音ミクをフラットデザインで描いたCSSアニメーションです。",
+      "href": "https://codepen.io/hayu/pen/XMKENo",
+      "id": "codepen-XMKENo",
+      "name": "Hatsune Miku Flat",
+      "status": "active"
+    },
+    {
+      "category": "motion",
+      "demo": "text-animation",
+      "description": "CSSで作ったテキストアニメーションです。",
+      "href": "https://codepen.io/hayu/pen/EyvbVQ",
+      "id": "codepen-EyvbVQ",
+      "name": "Text Animation",
+      "status": "active"
+    },
+    {
+      "category": "motion",
+      "demo": "text-animation-2",
+      "description": "CSSで作ったテキストアニメーションです。",
+      "href": "https://codepen.io/hayu/pen/yVrYGq",
+      "id": "codepen-yVrYGq",
+      "name": "Text Animation 2",
+      "status": "active"
+    },
+    {
+      "category": "illustration",
+      "createdDate": "2014-11-24",
+      "description": "pixivに投稿した初音ミクのイラストです。",
+      "href": "https://www.pixiv.net/artworks/47230872",
+      "id": "pixiv-47230872",
+      "images": [
+        "/works/pixiv-47230872.jpg"
+      ],
+      "name": "ショートミクさん",
+      "status": "active"
+    }
+  ]
+}

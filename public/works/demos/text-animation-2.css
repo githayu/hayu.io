@@ -1,0 +1,103 @@
+/* CodePen https://codepen.io/hayu/pen/yVrYGq のCSSを元にしている。bodyは.bodyに置き換える */
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0 0 20px;
+  background-color: #e2e2e2;
+}
+
+.section-number {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  animation: 0.5s ease-out forwards layerRoot;
+  transform-origin: left;
+  margin: 5px 0;
+  transform: scaleX(0);
+  border-radius: 2px;
+  color: #2196F3;
+  font-weight: bold;
+  font-size: 25px;
+}
+.section-number::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: 0.5s ease-out 800ms forwards afterLayer;
+  background-color: #2196F3;
+}
+
+.section-subject {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  animation: 0.5s ease-out forwards layerRoot;
+  transform-origin: left;
+  margin: 5px 0;
+  transform: scaleX(0);
+  border-radius: 2px;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.section-subject::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: 0.5s ease-out 800ms forwards afterLayer;
+  background-color: #222;
+  animation-delay: 0.5s;
+}
+
+.section-description {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  animation: 0.5s ease-out forwards layerRoot;
+  transform-origin: left;
+  margin: 5px 0;
+  transform: scaleX(0);
+  border-radius: 2px;
+  animation-delay: 0.5s;
+  color: #fff;
+  background-color: #222;
+  padding: 8px 20px;
+  margin-top: 30px;
+  font-size: 20px;
+}
+.section-description::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: 0.5s ease-out 800ms forwards afterLayer;
+  background-color: #fff;
+  animation-delay: 1s;
+}
+
+@keyframes layerRoot {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes afterLayer {
+  0% {
+    transform: translateX(0) skewX(0);
+  }
+  100% {
+    transform: translateX(110%) skewX(-10deg);
+  }
+}

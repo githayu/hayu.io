@@ -1,21 +1,37 @@
 # hayu-io
 
-## Project setup
-```
-yarn install
+hayu.io のプロフィールサイト。Next.js (App Router) の静的書き出しを Firebase Hosting から配信する。
+
+## セットアップ
+
+```sh
+pnpm install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
+## 開発サーバー
+
+```sh
+pnpm dev
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
+## ビルド
+
+```sh
+pnpm build
 ```
 
-### Lints and fixes files
+`out/` に静的ファイルが書き出される。
+
+## Lint・型チェック
+
+```sh
+pnpm lint
+pnpm typecheck
 ```
-yarn run lint
+
+## デプロイ
+
+```sh
+pnpm build
+pnpm deploy
 ```

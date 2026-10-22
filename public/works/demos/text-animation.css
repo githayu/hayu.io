@@ -1,0 +1,91 @@
+/* CodePen https://codepen.io/hayu/pen/EyvbVQ のCSSを元にしている。remはページのhtmlの文字サイズ (62.5%) の影響を受けるのでpxに換算した。bodyは.bodyに置き換える */
+.body {
+  background-color: #222;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  height: 32px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 150px;
+}
+
+.text {
+  height: 0;
+  line-height: 32px;
+  font-size: 16px;
+  color: #fff;
+  overflow: hidden;
+  font-family: "Futura", "Avenir Next", sans-serif;
+  transform: skewX(-10deg);
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.text > .work {
+  font-weight: normal;
+}
+.text > .work::after {
+  content: ":";
+}
+.text > .name {
+  font-weight: bold;
+}
+
+.border {
+  height: 5px;
+  background-image: linear-gradient(to right, #fff 50%, #000 50%);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/*
+ * 元のペンはWeb Animationsの SequenceEffect で次の順に再生していたので、3秒の1本のアニメーションにまとめる
+ * 線が伸びる (0.5秒後から0.2秒) → 文字がせり上がる (0.8秒) → 1秒後に線が消える → 文字が下がる (0.5秒)
+ */
+.text {
+  animation: text 3s forwards;
+}
+
+.border {
+  width: 0;
+  animation: border 3s forwards;
+}
+
+@keyframes border {
+  0%,
+  16.667% {
+    width: 0;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  23.333%,
+  83.333% {
+    width: 100%;
+  }
+  83.334%,
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes text {
+  0%,
+  23.333% {
+    height: 0;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  50%,
+  83.333% {
+    height: 32px;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  100% {
+    height: 0;
+  }
+}

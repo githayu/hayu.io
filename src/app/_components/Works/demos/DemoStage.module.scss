@@ -1,0 +1,27 @@
+.stage {
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+
+.host {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+// 元のペンの #replay のスタイル (remはCodePenの16pxで換算)
+.replay {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #111;
+  border: none;
+  border-radius: 2px;
+  font-size: 12.8px;
+  padding: 0 10px;
+  line-height: 24px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
