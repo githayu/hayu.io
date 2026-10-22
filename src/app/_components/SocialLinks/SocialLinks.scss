@@ -83,7 +83,7 @@
       > a {
         opacity: 0;
 
-        @for $i from 1 through 7 {
+        @for $i from 1 through 8 {
           $seconds: 1.6s;
 
           &:nth-child(#{$i}) {

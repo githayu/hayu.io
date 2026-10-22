@@ -1,12 +1,17 @@
+import Box from '@mui/material/Box'
 import React from 'react'
 
-import { Intro, Works } from './_components'
+import { Footer, Intro, Works } from './_components'
 
 export default function HomePage() {
   return (
     <>
       <Intro />
-      <Works />
+
+      <Box id="content" sx={{ bgcolor: 'background.default', color: 'text.primary' }}>
+        <Works />
+        <Footer />
+      </Box>
     </>
   )
 }

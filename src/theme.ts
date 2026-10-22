@@ -24,8 +24,8 @@ export const theme = createTheme({
     },
   },
   cssVariables: {
-    // :rootに付くとcolor-schemeがページ全体に掛かり、プロフィールカードの文字色まで変わるため制作物一覧に限定する
-    rootSelector: '#works',
+    // :rootに付くとcolor-schemeがページ全体に掛かり、プロフィールカードの文字色まで変わるため制作物一覧とフッターに限定する
+    rootSelector: '#content',
   },
   shape: {
     borderRadius: 2,

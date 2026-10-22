@@ -1,6 +1,13 @@
 import './SocialLinks.scss'
-import { Icon } from '@iconify/react'
+import { Icon, type IconifyIcon } from '@iconify/react'
 import Tooltip from '@mui/material/Tooltip'
+
+/** Mikumoのロゴ (mikumo.ioのicon.svgを単色にしたもの) */
+const mikumoIcon: IconifyIcon = {
+  body: '<g fill="currentColor"><rect x="14" y="10" width="17" height="8" rx="4"/><rect x="9" y="20" width="33" height="8" rx="4"/><rect x="6" y="30" width="31" height="8" rx="4"/></g>',
+  height: 48,
+  width: 48,
+}
 
 const links = [
   {
@@ -50,6 +57,13 @@ const links = [
     id: 'codepen',
     link: 'http://codepen.io/hayu/',
     screenName: 'CodePen',
+    target: '_blank',
+  },
+  {
+    icon: mikumoIcon,
+    id: 'mikumo',
+    link: 'https://mikumo.io/',
+    screenName: 'Mikumo',
     target: '_blank',
   },
 ]

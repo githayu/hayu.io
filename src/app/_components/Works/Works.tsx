@@ -94,11 +94,7 @@ const WorkCard = ({ work }: { work: Work }) => {
  */
 export function Works() {
   return (
-    <Box
-      component="section"
-      id="works"
-      sx={{ bgcolor: 'background.default', color: 'text.primary' }}
-    >
+    <Box component="section" id="works">
       <Container maxWidth="md" sx={{ py: 4 }}>
         <Typography component="h2" sx={{ mb: 3 }} variant="h5">
           Works

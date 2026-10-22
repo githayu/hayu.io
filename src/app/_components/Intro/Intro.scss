@@ -91,9 +91,18 @@
   }
 }
 
+// スマホ (カードを縦に積むので、画面より高くなっても下の制作物一覧に重ならないようにする)
+@media screen and (max-width: 480px) {
+  .p-intro {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
 // タブレット
 @media screen and (max-width: 768px) {
-  .intro {
+  .p-intro,
+  .p-intro.p-intro--particles {
     border-width: 0;
   }
 

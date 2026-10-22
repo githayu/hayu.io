@@ -26,7 +26,7 @@ pnpm deploy      # firebase deploy (公開操作なので実行前にユーザ�
 | 範囲                                                                       | 方式                                                                                                      |
 | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | プロフィールカード (`src/app/_components/{Intro,ProfileCard,SocialLinks}`) | グローバル SCSS (BEM 風の `p-` / `c-` クラス)。CSS アニメーションの作品なので UI ライブラリに置き換えない |
-| 制作物一覧 (`src/app/_components/Works`)                                   | MUI (Emotion)                                                                                             |
+| 制作物一覧・フッター (`src/app/_components/{Works,Footer}`)                | MUI (Emotion)                                                                                             |
 | 制作物のデモ (`Works/demos`)                                               | Shadow DOM + `public/works/demos/*.css`                                                                   |
 
 - `src/app/_styles/globals.css` で `html { font-size: 62.5% }` (1rem = 10px) にしている。MUI のテーマは `typography.htmlFontSize: 10` でこれに合わせている
@@ -34,8 +34,8 @@ pnpm deploy      # firebase deploy (公開操作なので実行前にユーザ�
 
 ### MUI のテーマは 2 つある ([src/theme.ts](src/theme.ts))
 
-- `theme` (制作物一覧用): OS のライト/ダークに追従し、CSS 変数を使う。`cssVariables.rootSelector` を `#works` にしている。`:root` にすると `color-scheme: dark` がページ全体に掛かり、白地のプロフィールカードの文字が白くなって見えなくなる
-- `profileTheme` (プロフィールカード用): ライトモード固定で CSS 変数を使わない (Tooltip はポータルで `#works` の外に描画されるため)。Vue 版の Vuetify 1 の見た目 (primary `#1976d2`) に合わせている
+- `theme` (制作物一覧とフッター用): OS のライト/ダークに追従し、CSS 変数を使う。`cssVariables.rootSelector` を、制作物一覧とフッターを包む `#content` にしている。`:root` にすると `color-scheme: dark` がページ全体に掛かり、白地のプロフィールカードの文字が白くなって見えなくなる
+- `profileTheme` (プロフィールカード用): ライトモード固定で CSS 変数を使わない (Tooltip はポータルで `#content` の外に描画されるため)。Vue 版の Vuetify 1 の見た目 (primary `#1976d2`) に合わせている
 
 ### 制作物一覧
 
